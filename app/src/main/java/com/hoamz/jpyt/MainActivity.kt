@@ -9,13 +9,9 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
-import androidx.credentials.CredentialManager
-import com.google.firebase.Firebase
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.auth
 import com.hoamz.jpyt.ui.theme.JPYTTheme
-import kotlinx.coroutines.launch
-import java.lang.Exception
+
+// TODO: 9/12/2025  
 
 class MainActivity : ComponentActivity() {
     /*
@@ -23,16 +19,11 @@ class MainActivity : ComponentActivity() {
     ./gradlew clean
     ./gradlew app:processDebugGoogleServices
      */
-    private lateinit var auth: FirebaseAuth
-
-    private lateinit var credentialManager: CredentialManager
 
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        auth = Firebase.auth
-        credentialManager = CredentialManager.create(this)
         setContent {
             JPYTTheme {
                 Column(
