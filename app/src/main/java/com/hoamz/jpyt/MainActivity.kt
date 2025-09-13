@@ -58,69 +58,11 @@ class MainActivity : ComponentActivity() {
                 Column(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    CustomSheet()
-                }
-            }
-        }
-    }
-}
-
-
-//custom bottom sheet
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun CustomSheet(
-    modifier: Modifier = Modifier
-) {
-    var isShowSheet by remember {
-        mutableStateOf(false)
-    }
-
-    val scope = rememberCoroutineScope()
-
-    val sheetState = rememberModalBottomSheetState()
-    val hideSheet = {
-        scope.launch {
-            sheetState.hide()
-        }
-    }
-
-    Column(
-        modifier = Modifier.fillMaxSize()
-            .padding(5.dp),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Button(
-            onClick = {
-                isShowSheet = !isShowSheet
-            }
-        ) {
-            Text(text = "Open")
-        }
-
-
-        if(isShowSheet){
-            ModalBottomSheet(
-                sheetState = sheetState,
-                onDismissRequest = {
-                    hideSheet().invokeOnCompletion {
-                        isShowSheet = false
-                    }
-                }
-            ) {
-                //noi dung ben trong sheet
-                Box(
-                    modifier = Modifier.size(300.dp)
-                        .background(color = Color.Red)
-                ){
 
                 }
             }
         }
-
     }
-
 }
 
 
