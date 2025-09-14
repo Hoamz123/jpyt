@@ -56,67 +56,16 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
+//on lai room
+
 class MainActivity : ComponentActivity() {
-    /*
-    //nho chay 2 dong nay khi auth by gg
-    ./gradlew clean
-    ./gradlew app:processDebugGoogleServices
-     */
-    @OptIn(ExperimentalMaterial3Api::class)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             JPYTTheme {
-                val scrollState = rememberScrollState()
-//                Log.e("scrollState","${scrollState.value}")
-                val isScrolled by remember {
-                    derivedStateOf {
-                        scrollState.value == 0
-                    }
-                }
-                Column(
-                    modifier = Modifier.fillMaxSize(),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Scaffold(
-                        topBar = {
-                            //cuong nen -> an top bar
-                            AnimatedVisibility(
-                                visible = isScrolled,//neu = 0 thi chien thi <=> voi khong cuong
-                                exit = slideOutVertically() + fadeOut(),
-                                enter = slideInHorizontally()
-                            ) {
-                                TopAppBar(
-                                    title = {Text(text = "Home")},
-                                    navigationIcon = {
-                                        Icon(Icons.Default.Menu,
-                                            contentDescription = null,
-                                            modifier = Modifier.padding(start = 16.dp))
-                                    },
-                                    colors = TopAppBarDefaults.topAppBarColors(
-                                        containerColor = Color.Magenta
-                                    )
-                                )
-                            }
-                        }
-                    ) {innerPadding ->
-                        Column(
-                            modifier = Modifier.padding(innerPadding)
-                                .fillMaxSize()
-                                .verticalScroll(state = scrollState),
-                            horizontalAlignment = Alignment.CenterHorizontally
-                        ) {
-                            repeat(5){index ->
-                                Box (
-                                    modifier = Modifier.size(300.dp).fillMaxWidth()
-                                        .background(if(index % 2 == 1) Color.Red else Color.Blue),
-                                    contentAlignment = Alignment.Center
-                                ){}
-                            }
-                        }
-                    }
-                }
+
             }
         }
     }
